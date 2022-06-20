@@ -214,8 +214,8 @@ public class ActivityListContactos extends AppCompatActivity {
             Cursor cData = db.query(Transacciones.tablaPaises, fields, whereCon, params, null, null, null, null);
             cData.moveToFirst();
 
-            arrayContactos.add(cData.getString(1)+" | "+
-                    listaC.get(i).getNombreContacto()+" | "+
+            arrayContactos.add(cData.getString(1)+" // "+
+                    listaC.get(i).getNombreContacto()+" // "+
                     listaC.get(i).getTelefonoContacto());
             cData.close();
         }
