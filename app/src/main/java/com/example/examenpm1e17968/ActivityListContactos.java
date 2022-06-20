@@ -1,5 +1,6 @@
 package com.example.examenpm1e17968;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -206,7 +207,7 @@ public class ActivityListContactos extends AppCompatActivity {
         SQLiteDatabase db = conexion.getReadableDatabase();
         for(int i = 0; i<listaC.size(); i++){
 
-            String [] params = {listaC.get(i).getPais().toString()}; //Parametro de Busqueda
+            String [] params = {listaC.get(i).getPais().toString()};
             String [] fields = {Transacciones.idPais,Transacciones.nombrePais};
             String whereCon = Transacciones.idPais + "=?";
 

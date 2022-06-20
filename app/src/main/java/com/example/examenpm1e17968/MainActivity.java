@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         Button btnListaContactos = (Button) findViewById(R.id.btnContactos);
         btnListaContactos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
     }
 
