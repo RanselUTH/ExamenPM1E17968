@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo2"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="185dp"
+        android:layout_height="122dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/label1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="44dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="162dp" />
+
+    <TextView
+        android:id="@+id/label2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="313dp"
+        android:layout_marginBottom="12dp"
+        android:text="Nombre:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#F8F5F5"
+        app:layout_constraintBottom_toTopOf="@+id/txtNombreModificar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cmbPaisesBuscado" />
+
+    <TextView
+        android:id="@+id/label3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="308dp"
+        android:layout_marginBottom="15dp"
+        android:text="Teléfono:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#FDF8F8"
+        app:layout_constraintBottom_toTopOf="@+id/txtTelefonoModificar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombreModificar" />
+
+    <TextView
+        android:id="@+id/label4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="9dp"
+        android:text="Información"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#F6F5F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.566" />
+
+    <Button
+        android:id="@+id/btnanadir"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="39dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="18dp"
+        android:backgroundTint="#34C33A"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/cmbPaisesBuscado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.846"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Spinner
+        android:id="@+id/cmbPaisesBuscado"
+        android:layout_width="150dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="17dp"
+        android:background="#F3F1F1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.797"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.134" />
+
+    <EditText
+        android:id="@+id/txtNombreModificar"
+        android:layout_width="320dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTintMode="add"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:maxLength="20"
+        android:textColor="#FBFAFA"
+        android:textColorHint="#F3F2F2"
+        app:layout_constraintBottom_toTopOf="@+id/label3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label2" />
+
+    <EditText
+        android:id="@+id/txtTelefonoModificar"
+        android:layout_width="320dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTintMode="add"
+        android:ems="8"
+        android:inputType="number"
+        android:maxLength="8"
+        android:textColor="#FAF9F9"
+        android:textColorHint="#FBF8F8"
+        app:layout_constraintBottom_toTopOf="@+id/label4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label3" />
+
+    <EditText
+        android:id="@+id/txtInformacionModificar"
+        android:layout_width="321dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="17dp"
+        android:backgroundTintMode="add"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:maxLength="50"
+        android:textColor="#FAF7F7"
+        android:textColorHint="#F8F5F5"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label4" />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="320dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#34C33A"
+        android:text="Guardar Contacto"
+        app:layout_constraintBottom_toTopOf="@+id/btnContactos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInformacionModificar" />
+
+    <Button
+        android:id="@+id/btnContactos"
+        android:layout_width="320dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="48dp"
+        android:backgroundTint="#34C33A"
+        android:text="Ver Contactos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGuardar" />
+</androidx.constraintlayout.widget.ConstraintLayout>
