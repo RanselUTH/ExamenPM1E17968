@@ -22,23 +22,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
-
 import com.example.examenpm1e17968.Tablas.Contactos;
 import com.example.examenpm1e17968.Transacciones.Transacciones;
-
 import java.util.ArrayList;
-
-
-
 public class ActivityListContactos extends AppCompatActivity {
 
-    SQLiteConexion conexion;
+
     ListView listacontactos;
     ArrayList<Contactos> listaC;
     ArrayList<String> arrayContactos;
+    SQLiteConexion conexion;
     private String  idCont, telefono, nombre, pais, nota;
-
     final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 1;
 
     @Override
@@ -55,7 +49,6 @@ public class ActivityListContactos extends AppCompatActivity {
 
         conexion = new SQLiteConexion(this, Transacciones.NameDataBase, null, 1);
         listacontactos = (ListView) findViewById(R.id.listcontactos);
-
 
         ObtenerListaContactos();
         ArrayAdapter adp = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayContactos);
@@ -92,8 +85,8 @@ public class ActivityListContactos extends AppCompatActivity {
             public void onClick(View v) {
                 if(idCont != null){
                     new AlertDialog.Builder(v.getContext())
-                            .setTitle("Confirmación de Llamada")
-                            .setMessage("¿Desea llamar a " + nombre + "?")
+                            .setTitle("Confirmar la Llamada")
+                            .setMessage("¿Contacto seleccionado desea llamar a " + nombre + "?")
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -143,23 +136,15 @@ public class ActivityListContactos extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
         listacontactos.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 idCont = listaC.get(position).getIdContacto().toString();
                 nombre = listaC.get(position).getNombreContacto();
                 pais = listaC.get(position).getPais().toString();
-
                 telefono = obtenerCodigoMarcado(pais);
-
                 telefono = telefono + listaC.get(position).getTelefonoContacto().toString();
-
-                Toast.makeText(getApplicationContext(), "Ha seleccionado a: "+nombre, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Se selecciono el contacto: "+nombre, Toast.LENGTH_LONG).show();
             }
         });
 
@@ -177,9 +162,7 @@ public class ActivityListContactos extends AppCompatActivity {
             startActivity(compartir);
 
         }catch (Exception e){
-
         }
-
     }
 
     private void ObtenerListaContactos(){
@@ -195,7 +178,6 @@ public class ActivityListContactos extends AppCompatActivity {
             listaContactos.setTelefonoContacto(cursor.getInt(2));
             listaContactos.setPais(cursor.getInt(3));
             listaContactos.setNota(cursor.getString(4));
-
             listaC.add(listaContactos);
         }
         fillList();
@@ -203,20 +185,14 @@ public class ActivityListContactos extends AppCompatActivity {
 
     private void fillList(){
         arrayContactos = new ArrayList<String>();
-
         SQLiteDatabase db = conexion.getReadableDatabase();
         for(int i = 0; i<listaC.size(); i++){
-
             String [] params = {listaC.get(i).getPais().toString()};
             String [] fields = {Transacciones.idPais,Transacciones.nombrePais};
             String whereCon = Transacciones.idPais + "=?";
-
             Cursor cData = db.query(Transacciones.tablaPaises, fields, whereCon, params, null, null, null, null);
             cData.moveToFirst();
-
-            arrayContactos.add(cData.getString(1)+" // "+
-                    listaC.get(i).getNombreContacto()+" // "+
-                    listaC.get(i).getTelefonoContacto());
+            arrayContactos.add(cData.getString(1)+" // "+ listaC.get(i).getNombreContacto()+" // "+ listaC.get(i).getTelefonoContacto());
             cData.close();
         }
     }
@@ -235,20 +211,14 @@ public class ActivityListContactos extends AppCompatActivity {
 
     private String obtenerCodigoMarcado(String idPais) {
         String codigoMarcado;
-
         SQLiteDatabase db = conexion.getReadableDatabase();
-
-        String [] params = {idPais}; //Parametro de Busqueda
+        String [] params = {idPais};
         String [] fields = {Transacciones.idPais,Transacciones.codigoMarcado};
         String whereCon = Transacciones.idPais + "=?";
-
         Cursor cData = db.query(Transacciones.tablaPaises, fields, whereCon, params, null, null, null, null);
         cData.moveToFirst();
-
         codigoMarcado = String.valueOf(cData.getInt(1));
-
         cData.close();
-
         return codigoMarcado;
     }
 
@@ -267,6 +237,5 @@ public class ActivityListContactos extends AppCompatActivity {
                 }
                 return;
             }
-        }
-    }
+        }}
 }

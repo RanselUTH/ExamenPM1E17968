@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         Button btnSalvarContacto = (Button) findViewById(R.id.btnGuardar);
         txtnombre = (EditText) findViewById(R.id.txtNombreModificar);
         txtTelefono = (EditText) findViewById(R.id.txtTelefonoModificar);
@@ -78,8 +77,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
 
     }
 
@@ -107,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 valores.put(Transacciones.nota, txtNota.getText().toString());
 
                 Long resultado = db.insert(Transacciones.tablaContactos, Transacciones.idContacto, valores);
-                Toast.makeText(getApplicationContext(), "Contacto Guardado: " + resultado.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Contacto Agendado Y Guardado: " + resultado.toString(), Toast.LENGTH_LONG).show();
                 db.close();
                 ClearScreen();
             }
@@ -122,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void mostrarDialogoVacios() {
         new AlertDialog.Builder(this)
-                .setTitle("Alerta de Vacíos")
+                .setTitle("Alerta Campos Vacios")
                 .setMessage("No puede dejar ningún campo vacío")
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
@@ -134,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void mostrarDialogoNumeros() {
         new AlertDialog.Builder(this)
-                .setTitle("Alerta de Números")
+                .setTitle("Alerta Números")
                 .setMessage("No puede ingresar números en el campo de Nombre")
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override

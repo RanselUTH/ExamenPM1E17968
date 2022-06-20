@@ -13,7 +13,6 @@ public class Contactos {
     public  Contactos(){
 
     }
-
     public Contactos(Integer idContacto, String nombreContacto, Integer telefonoContacto, Integer pais, String nota){
         this.idContacto = idContacto;
         this.nombreContacto = nombreContacto;

@@ -26,14 +26,13 @@ import java.util.ArrayList;
 
 public class ActivityEdit extends AppCompatActivity {
 
-    SQLiteConexion conexion;
+
     private String idCont, nombre, telefono, pais, notas;
     EditText txtbuscarid, txtNombre, txtTelefono, txtNota;
     Spinner combobuscarpais;
+    SQLiteConexion conexion;
     ArrayList<String> listaPaises;
     ArrayList<Paises> paises;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,8 +76,6 @@ public class ActivityEdit extends AppCompatActivity {
 
     private void BuscarContacto() {
         SQLiteDatabase db = conexion.getWritableDatabase();
-
-
         String [] params = {idCont};
         String [] fields = {Transacciones.nombreContacto,
                 Transacciones.telefonoContacto,
@@ -124,7 +121,7 @@ public class ActivityEdit extends AppCompatActivity {
                 valores.put(Transacciones.nota, txtNota.getText().toString());
 
                 db.update(Transacciones.tablaContactos, valores, Transacciones.idContacto + "=?", params);
-                Toast.makeText(getApplicationContext(), "Dato Actualizado", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Contacto Actualizado", Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(getApplicationContext(), ActivityListContactos.class);
                 startActivity(intent);
@@ -135,8 +132,8 @@ public class ActivityEdit extends AppCompatActivity {
 
     private void EliminarContacto() {
         new AlertDialog.Builder(this)
-                .setTitle("Confirmación de Eliminación")
-                .setMessage("¿Desea eliminar el contacto de " + txtNombre.getText() + "?")
+                .setTitle("Confirmar la Eliminación")
+                .setMessage("¿Desea eliminar este contacto de " + txtNombre.getText() + "?")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -144,7 +141,7 @@ public class ActivityEdit extends AppCompatActivity {
                         String [] params = {idCont}; //Parametro de Busqueda
 
                         db.delete(Transacciones.tablaContactos, Transacciones.idContacto + "=?", params);
-                        Toast.makeText(getApplicationContext(), "Dato Eliminado", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Contacto Eliminado", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getApplicationContext(), ActivityListContactos.class);
                         startActivity(intent);
                     }
@@ -152,7 +149,7 @@ public class ActivityEdit extends AppCompatActivity {
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(getApplicationContext(), "Se canceló la eliminación", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "eliminación cancelada", Toast.LENGTH_LONG).show();
                     }
                 }).show();
     }

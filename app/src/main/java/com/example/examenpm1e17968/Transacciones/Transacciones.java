@@ -1,9 +1,9 @@
 package com.example.examenpm1e17968.Transacciones;
 public class Transacciones {
-    /* Tablas */
+
     public static final String tablaPaises = "paises";
     public static final String tablaContactos = "contactos";
-    /* Campos */
+
     public static final String idPais = "idPais";
     public static final String nombrePais = "nombrePais";
     public static final String codigoMarcado = "codigoMarcado";
@@ -14,7 +14,7 @@ public class Transacciones {
     public static final String pais = "pais";
     public static final String nota = "nota";
 
-    /* CRUD */
+
     public static final String CreateTablePaises =
             "CREATE TABLE paises(idPais INTEGER PRIMARY KEY AUTOINCREMENT, nombrePais TEXT, codigoMarcado INTEGER)";
     public static final String DropeTablePaises =

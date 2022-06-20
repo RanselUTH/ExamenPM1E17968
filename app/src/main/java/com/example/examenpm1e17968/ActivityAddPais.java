@@ -20,8 +20,6 @@ import com.example.examenpm1e17968.Transacciones.Transacciones;
 public class ActivityAddPais extends AppCompatActivity {
 
     EditText txtpais, txtPrefijo;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +69,7 @@ public class ActivityAddPais extends AppCompatActivity {
                 valores.put(Transacciones.codigoMarcado, txtPrefijo.getText().toString());
 
                 Long resultado = db.insert(Transacciones.tablaPaises, Transacciones.idPais, valores);
-                Toast.makeText(getApplicationContext(), "País Añadido: " + resultado.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "País Agregado: " + resultado.toString(), Toast.LENGTH_LONG).show();
                 db.close();
                 ClearScreen();
             }
@@ -86,7 +84,7 @@ public class ActivityAddPais extends AppCompatActivity {
 
     private void mostrarDialogoVacios() {
         new AlertDialog.Builder(this)
-                .setTitle("Alerta de Vacíos")
+                .setTitle("Alerta Campos Vacíos")
                 .setMessage("No puede dejar ningún campo vacío")
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
@@ -95,11 +93,10 @@ public class ActivityAddPais extends AppCompatActivity {
                     }
                 }).show();
     }
-
     private void mostrarDialogoNumeros() {
         new AlertDialog.Builder(this)
-                .setTitle("Alerta de Números")
-                .setMessage("No puede ingresar números en el campo de Nombre del País")
+                .setTitle("Alerta Números")
+                .setMessage("No puede ingresar números en el campo de Nombre")
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
